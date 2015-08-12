@@ -1,5 +1,7 @@
 // Ryan Gliever -- 2015
 
+///////////////////////
+// CREATE THE CANVAS //
 var canvas = document.createElement("canvas");
 canvas.id = 'canvas';
 var ctx = canvas.getContext("2d");
@@ -8,11 +10,14 @@ canvas.height=window.innerHeight - 15;
 document.body.appendChild(canvas);
 cWidth=canvas.width;
 cHeight=canvas.height;
+// // // // // // // //
+///////////////////////
 
 // gravity and stuff
 var gravity = 0.4;
 var groundPoint = cHeight - (cHeight/4);
 
+// drawnBack and firedArrow booleans to assert state of currArrow
 var drawnBack = false;
 var firedArrow = false;
 
@@ -83,10 +88,10 @@ var angleBetween = function(p1, p2) {
   return Math.atan2(p2.y-p1.y, p2.x-p1.x);
 }
 
-// SHOOTING CIRCLE //
+// SHOOTING CIRCLES //
 var getAimCoords = function(mousePos) {
-  var angle = (Math.PI/2) - Math.atan2(shootingCirc.y-mousePos.y,
-                            shootingCirc.x-mousePos.x);
+  /* NOTE: angleBetween(p1, p2) is 180deg opposite of angleBetween(p2, p1) */
+  var angle = Math.PI/2 - angleBetween(mousePos, shootingCirc);
   var distance = Math.min(distBetween(shootingCirc, mousePos), shootingCirc.r);
   var x = shootingCirc.x + distance*Math.sin(angle);
   var y = shootingCirc.y + distance*Math.cos(angle);
@@ -184,6 +189,7 @@ var main = function() {
 
 var w = window;
 requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
+// add initial arrow
 addArrow();
 var currArrow = arrows[0];
 main();
