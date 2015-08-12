@@ -126,6 +126,9 @@ var drawCircles = function() {
 }
 
 var isFiredArrow = function() {
+  if (mousePos && isInCircle(mousePos) && mouseUp) {
+    drawnBack = false;
+  }
   if (mousePos && drawnBack && mouseUp) {
     drawnBack = false;
     firedArrow = true;
