@@ -69,7 +69,7 @@ addEventListener("mouseup", function(evt) {
 
 var drawScene = function() {
   // increased groundPoint so arrows stick where they should in the ground
-  var ground = groundPoint + 20;
+  var ground = groundPoint + 15;
   // sky
   ctx.fillStyle="rgba(0,0,200,0.2)";
   ctx.fillRect(0,0,cWidth,ground);
@@ -173,11 +173,11 @@ var update = function() {
 // RENDER //
 var render = function() {
   // if(mousePos) writeInfo(mousePos);
-  drawScene();
   drawCircles();
   for(i=0; i<arrows.length; i++) {
     arrows[i].drawArrow();
   }
+  drawScene();
 }
 
 // *** |\/| /_\ | |\| *** //

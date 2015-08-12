@@ -63,10 +63,10 @@ Arrow.prototype.calcArrowHead = function() {
   this.arrowTipCoords.y = this.y + 20*Math.cos(angle);
   var arrowTip = {x:this.arrowTipCoords.x, y:this.arrowTipCoords.y}
 
-  this.leftTipCoords.x = arrowTip.x - 4*Math.sin(angle-Math.PI/4);
-  this.leftTipCoords.y = arrowTip.y - 4*Math.cos(angle-Math.PI/4);
-  this.rightTipCoords.x = arrowTip.x - 4*Math.sin(angle+Math.PI/4);
-  this.rightTipCoords.y = arrowTip.y - 4*Math.cos(angle+Math.PI/4);
+  this.leftTipCoords.x = arrowTip.x - 3*Math.sin(angle-Math.PI/4);
+  this.leftTipCoords.y = arrowTip.y - 3*Math.cos(angle-Math.PI/4);
+  this.rightTipCoords.x = arrowTip.x - 3*Math.sin(angle+Math.PI/4);
+  this.rightTipCoords.y = arrowTip.y - 3*Math.cos(angle+Math.PI/4);
 };
 Arrow.prototype.drawArrow = function() {
   this.calcTrajectory();
